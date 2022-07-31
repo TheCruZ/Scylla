@@ -2,6 +2,7 @@
 
 #include <atlbase.h>       // base ATL classes
 #include <atlapp.h>        // base WTL classes
+#include <time.h>
 #include "Architecture.h"
 
 CAppModule _Module;
@@ -102,6 +103,7 @@ LPTOP_LEVEL_EXCEPTION_FILTER oldFilter;
 
 void AddExceptionHandler()
 {
+	srand(time(NULL)*GetCurrentProcessId());
 	oldFilter = SetUnhandledExceptionFilter(HandleUnknownException);
 }
 void RemoveExceptionHandler()

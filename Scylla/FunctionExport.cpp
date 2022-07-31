@@ -12,19 +12,49 @@
 
 extern HINSTANCE hDllModule;
 
+
+
 const WCHAR * WINAPI ScyllaVersionInformationW()
 {
-	return APPNAME L" " ARCHITECTURE L" " APPVERSION;
+	wchar_t alpha[]{ 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+						  'h', 'i', 'j', 'k', 'l', 'm', 'n',
+						  'o', 'p', 'q', 'r', 's', 't', 'u',
+						  'v', 'w', 'x', 'y', 'z' };
+	static wchar_t* wstr = 0;
+	if (!wstr) {
+		wstr = (wchar_t*)malloc(40);
+		if (!wstr)
+			return L"";
+	}
+	std::wstring result{};
+	for (int i = 0; i < 18; i++)
+		result = result + alpha[rand() % sizeof(alpha)/2];
+	wcscpy_s(wstr, 19, result.c_str());
+	return wstr;
 }
 
 const char * WINAPI ScyllaVersionInformationA()
 {
-	return APPNAME_S " " ARCHITECTURE_S " " APPVERSION_S;
+	char alpha[]{ 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+						  'h', 'i', 'j', 'k', 'l', 'm', 'n',
+						  'o', 'p', 'q', 'r', 's', 't', 'u',
+						  'v', 'w', 'x', 'y', 'z' };
+	static char* str = 0;
+	if (!str) {
+		str = (char*)malloc(20);
+		if (!str)
+			return "";
+	}
+	std::string result{};
+	for (int i = 0; i < 18; i++)
+		result = result + alpha[rand() % sizeof(alpha)];
+	strcpy_s(str, 19, result.c_str());
+	return str;
 }
 
 DWORD WINAPI ScyllaVersionInformationDword()
 {
-	return APPVERSIONDWORD;
+	return 0;
 }
 
 BOOL DumpProcessW(const WCHAR * fileToDump, DWORD_PTR imagebase, DWORD_PTR entrypoint, const WCHAR * fileResult)

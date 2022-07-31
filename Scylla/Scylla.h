@@ -5,14 +5,14 @@
 #include "ProcessLister.h"
 #include "Logger.h"
 
-#define APPNAME_S "Scylla"
-#define APPVERSION_S "v0.9.8"
-#define APPVERSIONDWORD 0x00009800
+//#define APPNAME_S "Scylla"
+//#define APPVERSION_S "v0.9.8"
+//#define APPVERSIONDWORD 0x00009800
 
 #define DONATE_BTC_ADDRESS "1GmVrhWwUhwLohaCLP4SKV5kkz8rd16N8h"
 
-#define APPNAME TEXT(APPNAME_S)
-#define APPVERSION TEXT(APPVERSION_S)
+//#define APPNAME TEXT(APPNAME_S)
+//#define APPVERSION TEXT(APPVERSION_S)
 
 class Scylla
 {

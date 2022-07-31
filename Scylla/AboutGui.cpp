@@ -3,6 +3,8 @@
 #include "Scylla.h"
 #include "Architecture.h"
 
+#include "FunctionExport.h"
+
 const WCHAR AboutGui::TEXT_VISIT[]          = L"Visit <a>German Reversing Newbies</a> and <a>Seek n Destroy</a>";
 const WCHAR AboutGui::TEXT_DEVELOPED[]      = L"Developed with Microsoft Visual Studio, written in pure C/C++";
 const WCHAR AboutGui::TEXT_CREDIT_DISTORM[] = L"This tool uses the <a>diStorm disassembler library</a> v3";
@@ -34,7 +36,7 @@ BOOL AboutGui::OnInitDialog(CWindow wndFocus, LPARAM lInitParam)
 
 	StaticTitle.SetFont(FontBold, FALSE);
 
-	StaticTitle.SetWindowText(APPNAME L" " ARCHITECTURE L" " APPVERSION);
+	StaticTitle.SetWindowText(ScyllaVersionInformationW());
 	StaticDeveloped.SetWindowText(TEXT_DEVELOPED);
 	StaticGreetings.SetWindowText(TEXT_GREETINGS);
 	StaticYoda.SetWindowText(TEXT_CREDIT_YODA);

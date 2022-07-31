@@ -518,7 +518,7 @@ void MainGui::setIconAndDialogCaption()
 	SetIcon(hIcon, TRUE);
 	SetIcon(hIcon, FALSE);
 
-	SetWindowText(APPNAME L" " ARCHITECTURE L" " APPVERSION);
+	SetWindowText(ScyllaVersionInformationW());
 }
 
 void MainGui::pickDllActionHandler()
